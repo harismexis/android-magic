@@ -25,11 +25,11 @@ class CardDetailFragment : BaseFragment() {
     private val viewModel: CardDetailViewModel by viewModels()
 
     companion object {
-        private const val ARG_HERO_ID = "heroId"
+        private const val ARG_CARD_ID = "cardId"
 
-        fun newInstance(heroId: Int): CardDetailFragment {
+        fun newInstance(cardId: Int): CardDetailFragment {
             val args = Bundle()
-            args.putInt(ARG_HERO_ID, heroId)
+            args.putInt(ARG_CARD_ID, cardId)
             val fragment = CardDetailFragment()
             fragment.arguments = args
             return fragment
@@ -79,7 +79,7 @@ class CardDetailFragment : BaseFragment() {
     override fun onCreateView() {}
 
     private fun fetchHeroDetails() {
-        val heroId = arguments?.getInt(ARG_HERO_ID)
+        val heroId = arguments?.getInt(ARG_CARD_ID)
         heroId?.let {
             viewModel.getHeroById(it)
         }

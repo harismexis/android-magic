@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_hero_detail">
 
         <argument
-            android:name="heroId"
+            android:name="cardId"
             app:argType="string" />
 
     </fragment>
