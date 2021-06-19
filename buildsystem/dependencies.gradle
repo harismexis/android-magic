@@ -37,10 +37,6 @@ ext {
     def mockk_android = '1.9.3' // 1.10.3-jdk8
     def google_truth = '0.42'
     def mock_webserver = '4.9.1'
-    def retrofit2_adapter_rxjava2 = '2.6.0'
-    def rxjava2 = '2.2.12'
-    def rxandroid = '2.1.1'
-    def rx_relay = '2.1.1'
 
     libraries = [
             kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin",
@@ -65,11 +61,11 @@ ext {
     librariesKapt = [
             room                  : "androidx.room:room-compiler:$room",
             hilt_android_compiler : "com.google.dagger:hilt-android-compiler:$hilt_version",
-            glide_compiler          : "com.github.bumptech.glide:compiler:${glide}"
+            glide_compiler        : "com.github.bumptech.glide:compiler:${glide}"
     ]
 
     librariesDebug = [
-            truth: "com.google.truth:truth:$truth",
+            truth            : "com.google.truth:truth:$truth",
             fragment_testing : "androidx.fragment:fragment-testing:$fragment_version"
     ]
 
@@ -110,13 +106,6 @@ ext {
             mockk_android            : "io.mockk:mockk-android:$mockk_android",
             nav_testing              : "androidx.navigation:navigation-testing:$nav_version",
             hilt_android_testing     : "com.google.dagger:hilt-android-testing:$hilt_version"
-    ]
-
-    rxJavaDependencies = [
-            retrofit_adapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_adapter_rxjava2",
-            rxjava          : "io.reactivex.rxjava2:rxjava:$rxjava2",
-            rxandroid       : "io.reactivex.rxjava2:rxandroid:$rxandroid",
-            rxrelay         : "com.jakewharton.rxrelay2:rxrelay:${rx_relay}",
     ]
 
     glideDependencies = [
