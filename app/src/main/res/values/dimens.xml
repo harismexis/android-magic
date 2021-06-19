@@ -15,23 +15,23 @@
     <dimen name="vh_item_txt_margin_horizontal">10dp</dimen>
     <dimen name="vh_item_txt_meta_margin_top">8dp</dimen>
 
-    <!-- vh hero item -->
-    <dimen name="vh_hero_img_width">140dp</dimen>
-    <dimen name="vh_hero_img_height">170dp</dimen>
-    <dimen name="vh_hero_padding_vertical">8dp</dimen>
-    <dimen name="vh_hero_padding_horizontal">16dp</dimen>
+    <!-- vh card item -->
+    <dimen name="vh_card_img_width">140dp</dimen>
+    <dimen name="vh_card_img_height">170dp</dimen>
+    <dimen name="vh_card_padding_vertical">8dp</dimen>
+    <dimen name="vh_card_padding_horizontal">16dp</dimen>
 
-    <!-- hero detail -->
-    <dimen name="hero_detail_img_height">580dp</dimen>
-    <dimen name="hero_detail_title_text_size">20sp</dimen>
-    <dimen name="hero_detail_label_text_size">16sp</dimen>
-    <dimen name="hero_detail_meta_text_size">16sp</dimen>
-    <dimen name="hero_detail_title_margin_top">4dp</dimen>
-    <dimen name="hero_detail_txt_label_margin_top">32dp</dimen>
-    <dimen name="hero_detail_txt_meta_margin_top">10dp</dimen>
-    <dimen name="hero_detail_txtv_margin_horizontal">18dp</dimen>
-    <dimen name="hero_detail_root_padding">2dp</dimen>
-    <dimen name="hero_detail_padding_bottom">20dp</dimen>
+    <!-- card detail -->
+    <dimen name="card_detail_img_height">580dp</dimen>
+    <dimen name="card_detail_title_text_size">20sp</dimen>
+    <dimen name="card_detail_label_text_size">16sp</dimen>
+    <dimen name="card_detail_meta_text_size">16sp</dimen>
+    <dimen name="card_detail_title_margin_top">4dp</dimen>
+    <dimen name="card_detail_txt_label_margin_top">32dp</dimen>
+    <dimen name="card_detail_txt_meta_margin_top">10dp</dimen>
+    <dimen name="card_detail_txtv_margin_horizontal">18dp</dimen>
+    <dimen name="card_detail_root_padding">2dp</dimen>
+    <dimen name="card_detail_padding_bottom">20dp</dimen>
 
     <!-- recycler divider -->
     <dimen name="divider_margin_horizontal">26dp</dimen>

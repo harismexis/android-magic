@@ -42,13 +42,13 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/hero_detail_root_padding"
-        android:paddingBottom="@dimen/hero_detail_padding_bottom"
+        android:paddingHorizontal="@dimen/card_detail_root_padding"
+        android:paddingBottom="@dimen/card_detail_padding_bottom"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <include
             android:id="@+id/item_detail_container"
-            layout="@layout/hero_detail_view"
+            layout="@layout/card_detail_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible" />

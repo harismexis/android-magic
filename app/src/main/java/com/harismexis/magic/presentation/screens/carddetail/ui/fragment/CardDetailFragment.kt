@@ -8,8 +8,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.harismexis.magic.R
+import com.harismexis.magic.databinding.CardDetailViewBinding
 import com.harismexis.magic.databinding.FragmentCardDetailBinding
-import com.harismexis.magic.databinding.HeroDetailViewBinding
 import com.harismexis.magic.datamodel.domain.Card
 import com.harismexis.magic.datamodel.result.CardDetailResult
 import com.harismexis.magic.framework.extensions.populateWithGlide
@@ -21,7 +21,7 @@ import com.harismexis.magic.presentation.screens.carddetail.viewmodel.CardDetail
 class CardDetailFragment : BaseFragment() {
 
     private var binding: FragmentCardDetailBinding? = null
-    private var detailBinding: HeroDetailViewBinding? = null
+    private var detailBinding: CardDetailViewBinding? = null
     private val viewModel: CardDetailViewModel by viewModels()
 
     companion object {

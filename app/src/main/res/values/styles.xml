@@ -73,22 +73,22 @@
     <!-- hero detail -->
 
     <style name="DetailTxtv" parent="BaseTxtv">
-        <item name="android:layout_marginStart">@dimen/hero_detail_txtv_margin_horizontal</item>
-        <item name="android:layout_marginEnd">@dimen/hero_detail_txtv_margin_horizontal</item>
+        <item name="android:layout_marginStart">@dimen/card_detail_txtv_margin_horizontal</item>
+        <item name="android:layout_marginEnd">@dimen/card_detail_txtv_margin_horizontal</item>
     </style>
 
     <style name="ItemDetailTitle" parent="DetailTxtv">
-        <item name="android:textSize">@dimen/hero_detail_title_text_size</item>
+        <item name="android:textSize">@dimen/card_detail_title_text_size</item>
         <item name="android:fontFamily">@font/ubuntu_bold</item>
     </style>
 
     <style name="ItemDetailLabel" parent="DetailTxtv">
-        <item name="android:textSize">@dimen/hero_detail_label_text_size</item>
+        <item name="android:textSize">@dimen/card_detail_label_text_size</item>
         <item name="android:textColor">@color/green_six</item>
     </style>
 
     <style name="ItemDetailMeta" parent="DetailTxtv">
-        <item name="android:textSize">@dimen/hero_detail_meta_text_size</item>
+        <item name="android:textSize">@dimen/card_detail_meta_text_size</item>
     </style>
 
     <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">

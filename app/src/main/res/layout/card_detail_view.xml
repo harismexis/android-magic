@@ -9,34 +9,34 @@
     <ImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/hero_detail_img_height"
+        android:layout_height="@dimen/card_detail_img_height"
         android:contentDescription="@string/cd_item_detail_image"
         android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/txt_name_label"
         style="@style/ItemDetailLabel"
-        android:layout_marginTop="@dimen/hero_detail_title_margin_top"
+        android:layout_marginTop="@dimen/card_detail_title_margin_top"
         android:text="@string/label_name"
         tools:text="Name label" />
 
     <TextView
         android:id="@+id/txt_name"
         style="@style/ItemDetailTitle"
-        android:layout_marginTop="@dimen/hero_detail_txt_meta_margin_top"
+        android:layout_marginTop="@dimen/card_detail_txt_meta_margin_top"
         tools:text="Name" />
 
     <TextView
         android:id="@+id/txt_type_label"
         style="@style/ItemDetailLabel"
-        android:layout_marginTop="@dimen/hero_detail_txt_label_margin_top"
+        android:layout_marginTop="@dimen/card_detail_txt_label_margin_top"
         android:text="@string/label_type"
         tools:text="Type label" />
 
     <TextView
         android:id="@+id/txt_type"
         style="@style/ItemDetailMeta"
-        android:layout_marginTop="@dimen/hero_detail_txt_meta_margin_top"
+        android:layout_marginTop="@dimen/card_detail_txt_meta_margin_top"
         tools:text="Type" />
 
 </LinearLayout>

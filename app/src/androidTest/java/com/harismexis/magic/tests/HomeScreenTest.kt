@@ -20,7 +20,7 @@ class HomeScreenTest: InstrumentedTestSetup() {
     @BindValue
     @JvmField
     var mockViewModel : HomeViewModel = mockk(relaxed = true)
-    var fakeHerosResult = MutableLiveData<CardsResult>()
+    var mockCardsResult = MutableLiveData<CardsResult>()
     private lateinit var mockCards: List<Card>
     private lateinit var cardsSuccess: CardsResult.Success
 

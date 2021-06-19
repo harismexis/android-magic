@@ -5,15 +5,15 @@
     android:id="@+id/vh_item_root_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="@dimen/vh_hero_padding_horizontal"
-    android:paddingTop="@dimen/vh_hero_padding_vertical"
-    android:paddingEnd="@dimen/vh_hero_padding_horizontal"
-    android:paddingBottom="@dimen/vh_hero_padding_vertical">
+    android:paddingStart="@dimen/vh_card_padding_horizontal"
+    android:paddingTop="@dimen/vh_card_padding_vertical"
+    android:paddingEnd="@dimen/vh_card_padding_horizontal"
+    android:paddingBottom="@dimen/vh_card_padding_vertical">
 
     <ImageView
         android:id="@+id/imgView"
-        android:layout_width="@dimen/vh_hero_img_width"
-        android:layout_height="@dimen/vh_hero_img_height"
+        android:layout_width="@dimen/vh_card_img_width"
+        android:layout_height="@dimen/vh_card_img_height"
         android:contentDescription="@string/content_description_character_image"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"

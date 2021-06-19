@@ -1,6 +1,5 @@
 package com.harismexis.magic.utils
 
-import com.harismexis.magic.parser.MockCardsParser
 import org.junit.Assert
 
 fun <T, P> verifyListsHaveSameSize(
@@ -17,14 +16,14 @@ fun <T> verifyListSize(
     Assert.assertEquals(expectedSize, items.size)
 }
 
-fun <T> verifyListSizeWhenAllIdsValid(items: List<T>) {
-    verifyListSize(MockCardsParser.EXPECTED_NUM_HEROS_WHEN_ALL_IDS_VALID, items)
-}
-
-fun <T> verifyListSizeWhenSomeItemsEmpty(items: List<T>) {
-    verifyListSize(MockCardsParser.EXPECTED_NUM_HEROS_WHEN_SOME_EMPTY, items)
-}
-
-fun <T> verifyListSizeForNoData(items: List<T>) {
-    verifyListSize(MockCardsParser.EXPECTED_NUM_HEROS_WHEN_NO_DATA, items)
-}
+//fun <T> verifyListSizeWhenAllIdsValid(items: List<T>) {
+//    verifyListSize(MockCardsParser.EXPECTED_NUM_HEROS_WHEN_ALL_IDS_VALID, items)
+//}
+//
+//fun <T> verifyListSizeWhenSomeItemsEmpty(items: List<T>) {
+//    verifyListSize(MockCardsParser.EXPECTED_NUM_HEROS_WHEN_SOME_EMPTY, items)
+//}
+//
+//fun <T> verifyListSizeForNoData(items: List<T>) {
+//    verifyListSize(MockCardsParser.EXPECTED_NUM_HEROS_WHEN_NO_DATA, items)
+//}
