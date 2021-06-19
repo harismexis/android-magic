@@ -17,11 +17,8 @@ fun LocalHero.toItem(): Hero {
     return Hero(
         this.id,
         this.name,
-        this.status,
-        this.species,
         this.type,
-        this.gender,
-        this.image
+        this.imageUrl
     )
 }
 
@@ -39,10 +36,7 @@ fun Hero.toLocalItem(): LocalHero {
     return LocalHero(
         this.id,
         this.name,
-        this.status,
-        this.species,
         this.type,
-        this.gender,
-        this.image
+        this.imageUrl
     )
 }

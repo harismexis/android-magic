@@ -7,22 +7,19 @@ import com.harismexis.magic.framework.datasource.network.model.RemoteHeros
 fun RemoteHeros?.toItems(): List<Hero> {
     val items = mutableListOf<Hero>()
     if (this == null) return items.toList()
-    if(this.results.isNullOrEmpty()) return items.toList()
-    val filteredList = this.results.filter { it.id != null }
+    if(this.cards.isNullOrEmpty()) return items.toList()
+    val filteredList = this.cards.filter { !it.id.isNullOrBlank() }
     items.addAll(filteredList.map {
         it !!.toItem(it.id !!)
     })
     return items.toList()
 }
 
-private fun RemoteHero.toItem(id: Int): Hero {
+private fun RemoteHero.toItem(id: String): Hero {
     return Hero(
         id,
         this.name,
-        this.status,
-        this.species,
         this.type,
-        this.gender,
-        this.image
+        this.imageUrl
     )
 }

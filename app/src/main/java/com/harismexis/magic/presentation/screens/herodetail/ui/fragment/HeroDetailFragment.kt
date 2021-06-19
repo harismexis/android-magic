@@ -91,12 +91,9 @@ class HeroDetailFragment : BaseFragment() {
             it.toolbar.setNavigationIcon(R.drawable.ic_arrow_left_white_rounded_24dp)
         }
         detailBinding?.let {
-            requireContext().populateWithGlide(it.img, hero.image)
+            requireContext().populateWithGlide(it.img, hero.imageUrl)
             it.txtName.setTextOrUnknown(hero.name)
-            it.txtStatus.setTextOrUnknown(hero.status)
-            it.txtSpecies.setTextOrUnknown(hero.species)
             it.txtType.setTextOrUnknown(hero.type)
-            it.txtGender.setTextOrUnknown(hero.gender)
         }
     }
 

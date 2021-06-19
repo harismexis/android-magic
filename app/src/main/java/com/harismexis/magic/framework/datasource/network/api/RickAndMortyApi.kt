@@ -6,9 +6,12 @@ import retrofit2.http.Query
 
 interface RickAndMortyApi {
 
-    @GET("character")
+    @GET("cards")
     suspend fun getHeros(
         @Query("name") name: String? = null
     ): RemoteHeros?
+
+//    @GET("cards")
+//    suspend fun getHeros(): RemoteHeros?
 
 }

@@ -13,13 +13,13 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.harismexis.hiltproject"
+        applicationId "com.harismexis.magic"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "com.harismexis.hiltproject.setup.runner.InstrumentedRunner"
-        buildConfigField "String", "RICK_AND_MORTY_API_BASE_URL", commonValues.RICK_AND_MORTY_API_BASE_URL
+        testInstrumentationRunner "com.harismexis.magic.setup.runner.InstrumentedRunner"
+        buildConfigField "String", "MAGIC_API_BASE_URL", commonValues.MAGIC_API_BASE_URL
     }
 
     buildTypes {

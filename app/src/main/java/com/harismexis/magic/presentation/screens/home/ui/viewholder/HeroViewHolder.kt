@@ -18,9 +18,9 @@ class HeroViewHolder(
         item: Hero,
         position: Int
     ) {
-        itemView.context.populateWithGlide(binding.imgView, item.image)
+        itemView.context.populateWithGlide(binding.imgView, item.imageUrl)
         binding.txtName.text = item.name
-        binding.txtMeta.text = item.species
+        binding.txtMeta.text = item.type
         itemView.setOnClickListener {
             itemClick.onHeroClick(item, position)
         }

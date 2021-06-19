@@ -1,7 +1,7 @@
 ext {
 
     common = [
-            RICK_AND_MORTY_API_BASE_URL : '\"' + "https://rickandmortyapi.com/api/" + '\"'
+            MAGIC_API_BASE_URL : '\"' + "https://api.magicthegathering.io/v1/" + '\"'
     ]
 
 }

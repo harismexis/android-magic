@@ -27,7 +27,7 @@ class RickAndMortyApiModule {
         gson: Gson
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.RICK_AND_MORTY_API_BASE_URL)
+            .baseUrl(BuildConfig.MAGIC_API_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
