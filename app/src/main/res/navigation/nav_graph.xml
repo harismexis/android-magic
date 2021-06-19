@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/home_dest">
+
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="com.harismexis.magic.presentation.screens.home.ui.fragment.HomeFragment"
+        app:defaultNavHost="true"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_home_dest_to_hero_detail_dest"
+            app:destination="@id/hero_detail_dest" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/hero_detail_dest"
+        android:name="com.harismexis.magic.presentation.screens.herodetail.ui.fragment.HeroDetailFragment"
+        tools:layout="@layout/fragment_hero_detail">
+
+        <argument
+            android:name="actorId"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>

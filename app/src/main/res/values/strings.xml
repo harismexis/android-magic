@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Android Magic</string>
+    <string name="screen_home_label">Heroes</string>
+    <string name="screen_hero_detail_label">Hero</string>
+
+    <!-- vh hero -->
+    <string name="content_description_character_image">hero Image</string>
+
+    <!-- hero detail -->
+    <string name="label_name">Name</string>
+    <string name="label_status">Status</string>
+    <string name="label_species">Species</string>
+    <string name="label_type">Type</string>
+    <string name="label_gender">Gender</string>
+    <string name="missing_value">n/a</string>
+    <string name="missing_img_url">[missing image url]</string>
+    <string name="character_image">Image</string>
+    <string name="cd_item_detail_image">Selected character</string>
+
+</resources>
