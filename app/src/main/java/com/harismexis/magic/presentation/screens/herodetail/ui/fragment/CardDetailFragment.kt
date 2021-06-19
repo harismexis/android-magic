@@ -25,11 +25,11 @@ class CardDetailFragment : BaseFragment() {
     private val viewModel: CardDetailViewModel by viewModels()
 
     companion object {
-        private const val ARG_HERO_ID = "actorId"
+        private const val ARG_HERO_ID = "heroId"
 
-        fun newInstance(actorId: Int): CardDetailFragment {
+        fun newInstance(heroId: Int): CardDetailFragment {
             val args = Bundle()
-            args.putInt(ARG_HERO_ID, actorId)
+            args.putInt(ARG_HERO_ID, heroId)
             val fragment = CardDetailFragment()
             fragment.arguments = args
             return fragment
