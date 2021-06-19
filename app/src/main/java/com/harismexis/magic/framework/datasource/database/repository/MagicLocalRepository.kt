@@ -13,13 +13,14 @@ import javax.inject.Singleton
 class MagicLocalRepository @Inject constructor(
     private val dao: RickAndMortyLocalDao
 ): MagicLocal {
+
     override suspend fun updateHeros(items: List<Card>) {
         dao.deleteAllHeros()
         dao.insertHeros(items.toLocalItems())
     }
 
-    override suspend fun getHero(itemId: Int): Card? {
-        val localItem = dao.getHeroById(itemId)
+    override suspend fun getHero(id: String): Card? {
+        val localItem = dao.getHeroById(id)
         localItem?.let {
             return it.toItem()
         }

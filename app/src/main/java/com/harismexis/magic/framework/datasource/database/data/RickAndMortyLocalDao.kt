@@ -13,7 +13,7 @@ interface RickAndMortyLocalDao {
     suspend fun insertHeros(items: List<LocalHero>)
 
     @Query("SELECT * FROM rick_and_morty_character_table WHERE id = :itemId")
-    suspend fun getHeroById(itemId: Int): LocalHero?
+    suspend fun getHeroById(itemId: String): LocalHero?
 
     @Query("SELECT * FROM rick_and_morty_character_table")
     suspend fun getAllHeros(): List<LocalHero?>?

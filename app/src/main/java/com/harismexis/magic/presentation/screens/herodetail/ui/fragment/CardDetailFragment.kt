@@ -79,7 +79,7 @@ class CardDetailFragment : BaseFragment() {
     override fun onCreateView() {}
 
     private fun fetchHeroDetails() {
-        val heroId = arguments?.getInt(ARG_CARD_ID)
+        val heroId = arguments?.getString(ARG_CARD_ID)
         heroId?.let {
             viewModel.getHeroById(it)
         }
