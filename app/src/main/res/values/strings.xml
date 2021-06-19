@@ -3,12 +3,14 @@
 
     <string name="app_name">Android Magic</string>
     <string name="screen_home_label">Heroes</string>
-    <string name="screen_hero_detail_label">Hero</string>
+    <string name="screen_card_detail_label">Hero</string>
 
     <!-- vh hero -->
-    <string name="content_description_character_image">hero Image</string>
+    <string name="content_description_character_image">Card image</string>
 
+    <!-- nav menu -->
     <string name="api">Magic API</string>
+    <string name="groupie">Groupie</string>
 
     <!-- hero detail -->
     <string name="label_name">Name</string>

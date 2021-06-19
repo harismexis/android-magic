@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/hero_detail_dest"
         android:name="com.harismexis.magic.presentation.screens.carddetail.ui.fragment.CardDetailFragment"
-        tools:layout="@layout/fragment_hero_detail">
+        tools:layout="@layout/fragment_card_detail">
 
         <argument
             android:name="cardId"

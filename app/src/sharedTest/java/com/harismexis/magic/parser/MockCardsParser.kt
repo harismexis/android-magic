@@ -4,14 +4,14 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.harismexis.magic.framework.extensions.hero.toItems
 import com.harismexis.magic.datamodel.domain.Card
 import com.harismexis.magic.framework.datasource.network.model.RemoteHero
 import com.harismexis.magic.framework.datasource.network.model.RemoteHeros
+import com.harismexis.magic.framework.extensions.hero.toItems
 import java.lang.reflect.Type
 import java.util.*
 
-class MockHerosParser(private val parser: BaseFileParser) {
+class MockCardsParser(private val parser: BaseFileParser) {
 
     companion object {
 

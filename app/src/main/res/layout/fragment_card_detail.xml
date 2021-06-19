@@ -30,7 +30,7 @@
                     android:id="@+id/toolbar_title"
                     style="@style/ToolbarText"
                     android:layout_gravity="start"
-                    android:text="@string/screen_hero_detail_label"
+                    android:text="@string/screen_card_detail_label"
                     tools:text="Toolbar title" />
 
             </androidx.appcompat.widget.Toolbar>

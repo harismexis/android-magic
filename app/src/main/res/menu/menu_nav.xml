@@ -9,4 +9,11 @@
         android:title="@string/api"
         app:showAsAction="ifRoom|withText" />
 
+    <item
+        android:id="@+id/groupie_dest"
+        android:enabled="true"
+        android:icon="@drawable/ic_documentation_white_24dp"
+        android:title="@string/groupie"
+        app:showAsAction="ifRoom|withText" />
+
 </menu>
