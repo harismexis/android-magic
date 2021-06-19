@@ -1,4 +1,4 @@
-package com.harismexis.magic.presentation.screens.herodetail.viewmodel
+package com.harismexis.magic.presentation.screens.carddetail.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -19,20 +19,20 @@ class CardDetailViewModel @Inject constructor(
 
     private val tag = CardDetailViewModel::class.qualifiedName
 
-    private val mHeroDetailResult = MutableLiveData<CardDetailResult>()
+    private val mCardDetailResult = MutableLiveData<CardDetailResult>()
     val cardDetailResult: LiveData<CardDetailResult>
-        get() = mHeroDetailResult
+        get() = mCardDetailResult
 
     fun getHeroById(id: String) {
         viewModelScope.launch {
             try {
                 val item = magicLocal.getHero(id)
                 item?.let {
-                    mHeroDetailResult.value = CardDetailResult.Success(item)
+                    mCardDetailResult.value = CardDetailResult.Success(item)
                 }
             } catch (e: Exception) {
                 Log.d(tag, e.getErrorMessage())
-                mHeroDetailResult.value = CardDetailResult.Error(e.getErrorMessage())
+                mCardDetailResult.value = CardDetailResult.Error(e.getErrorMessage())
             }
         }
     }

@@ -16,7 +16,7 @@ import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.framework.util.ui.hideKeyboard
 import com.harismexis.magic.presentation.base.BaseFragment
 import com.harismexis.magic.datamodel.result.CardsResult
-import com.harismexis.magic.presentation.screens.home.ui.adapter.HerosAdapter
+import com.harismexis.magic.presentation.screens.home.ui.adapter.HomeAdapter
 import com.harismexis.magic.presentation.screens.home.ui.viewholder.HeroViewHolder
 import com.harismexis.magic.presentation.screens.home.viewmodel.HomeViewModel
 
@@ -25,7 +25,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
 
     val viewModel: HomeViewModel by viewModels()
     private var binding: FragmentHomeBinding? = null
-    private lateinit var adapter: HerosAdapter
+    private lateinit var adapter: HomeAdapter
     private var uiModels: MutableList<Card> = mutableListOf()
 
     override fun initialiseViewBinding(
@@ -50,7 +50,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
     }
 
     private fun initialiseRecycler() {
-        adapter = HerosAdapter(uiModels, this)
+        adapter = HomeAdapter(uiModels, this)
         adapter.setHasStableIds(true)
         binding?.homeList?.layoutManager = LinearLayoutManager(this.context)
         binding?.homeList?.adapter = adapter

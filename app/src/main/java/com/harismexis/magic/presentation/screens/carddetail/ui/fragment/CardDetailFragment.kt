@@ -1,4 +1,4 @@
-package com.harismexis.magic.presentation.screens.herodetail.ui.fragment
+package com.harismexis.magic.presentation.screens.carddetail.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,7 +16,7 @@ import com.harismexis.magic.framework.extensions.populateWithGlide
 import com.harismexis.magic.framework.extensions.setTextOrUnknown
 import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.presentation.base.BaseFragment
-import com.harismexis.magic.presentation.screens.herodetail.viewmodel.CardDetailViewModel
+import com.harismexis.magic.presentation.screens.carddetail.viewmodel.CardDetailViewModel
 
 class CardDetailFragment : BaseFragment() {
 

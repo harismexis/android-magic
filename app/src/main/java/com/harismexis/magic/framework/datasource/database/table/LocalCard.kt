@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "rick_and_morty_character_table")
-data class LocalHero(
+@Entity(tableName = "magic_cards_table")
+data class LocalCard(
     @PrimaryKey @ColumnInfo(name = "id") val id: String,
     @ColumnInfo(name = "name") val name: String?,
     @ColumnInfo(name = "type") val type: String?,

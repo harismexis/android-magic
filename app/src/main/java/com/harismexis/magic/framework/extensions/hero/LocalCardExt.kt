@@ -1,9 +1,9 @@
 package com.harismexis.magic.framework.extensions.hero
 
 import com.harismexis.magic.datamodel.domain.Card
-import com.harismexis.magic.framework.datasource.database.table.LocalHero
+import com.harismexis.magic.framework.datasource.database.table.LocalCard
 
-fun List<LocalHero?>?.toItems(): List<Card> {
+fun List<LocalCard?>?.toItems(): List<Card> {
     val items = mutableListOf<Card>()
     if (this == null) return items.toList()
     val filteredList = this.filterNotNull()
@@ -13,7 +13,7 @@ fun List<LocalHero?>?.toItems(): List<Card> {
     return items.toList()
 }
 
-fun LocalHero.toItem(): Card {
+fun LocalCard.toItem(): Card {
     return Card(
         this.id,
         this.name,
@@ -22,8 +22,8 @@ fun LocalHero.toItem(): Card {
     )
 }
 
-fun List<Card?>?.toLocalItems(): List<LocalHero> {
-    val localItems = mutableListOf<LocalHero>()
+fun List<Card?>?.toLocalItems(): List<LocalCard> {
+    val localItems = mutableListOf<LocalCard>()
     if (this == null) return localItems.toList()
     val filteredList = this.filterNotNull()
     localItems.addAll(filteredList.map {
@@ -32,8 +32,8 @@ fun List<Card?>?.toLocalItems(): List<LocalHero> {
     return localItems.toList()
 }
 
-fun Card.toLocalItem(): LocalHero {
-    return LocalHero(
+fun Card.toLocalItem(): LocalCard {
+    return LocalCard(
         this.id,
         this.name,
         this.type,

@@ -6,31 +6,31 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.harismexis.magic.framework.datasource.database.converter.Converter
-import com.harismexis.magic.framework.datasource.database.data.RickAndMortyLocalDao
-import com.harismexis.magic.framework.datasource.database.table.LocalHero
+import com.harismexis.magic.framework.datasource.database.data.MagicLocalDao
+import com.harismexis.magic.framework.datasource.database.table.LocalCard
 
 @Database(
     entities = [
-        LocalHero::class
+        LocalCard::class
     ],
     version = 1,
     exportSchema = false
 )
 @TypeConverters(Converter::class)
-abstract class RickAndMortyDatabase : RoomDatabase() {
+abstract class MagicDatabase : RoomDatabase() {
 
     companion object {
         @Volatile
-        var INSTANCE: RickAndMortyDatabase? = null
-        private const val DATABASE_FILE_NAME = "rick_and_morty_room_database"
+        var INSTANCE: MagicDatabase? = null
+        private const val DATABASE_FILE_NAME = "magic_database"
 
         fun getDatabase(
             context: Context
-        ): RickAndMortyDatabase {
+        ): MagicDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    RickAndMortyDatabase::class.java,
+                    MagicDatabase::class.java,
                     DATABASE_FILE_NAME
                 )
                     .fallbackToDestructiveMigration()
@@ -41,6 +41,6 @@ abstract class RickAndMortyDatabase : RoomDatabase() {
         }
     }
 
-    abstract fun getDao(): RickAndMortyLocalDao
+    abstract fun getDao(): MagicLocalDao
 
 }

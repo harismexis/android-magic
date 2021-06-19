@@ -1,8 +1,8 @@
 package com.harismexis.magic.framework.di.application
 
 import android.content.Context
-import com.harismexis.magic.framework.datasource.database.data.RickAndMortyLocalDao
-import com.harismexis.magic.framework.datasource.database.db.RickAndMortyDatabase
+import com.harismexis.magic.framework.datasource.database.data.MagicLocalDao
+import com.harismexis.magic.framework.datasource.database.db.MagicDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,8 +16,8 @@ class ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideLocalDao(@ApplicationContext app: Context): RickAndMortyLocalDao {
-        return RickAndMortyDatabase.getDatabase(app).getDao()
+    fun provideLocalDao(@ApplicationContext app: Context): MagicLocalDao {
+        return MagicDatabase.getDatabase(app).getDao()
     }
 
 }
