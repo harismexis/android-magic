@@ -1,27 +1,38 @@
 package com.harismexis.magic.presentation.screens.home.ui.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.harismexis.magic.framework.event.EventObserver
+import com.google.android.material.navigation.NavigationView
 import com.harismexis.magic.R
 import com.harismexis.magic.databinding.FragmentHomeBinding
 import com.harismexis.magic.datamodel.domain.Card
+import com.harismexis.magic.datamodel.result.CardsResult
+import com.harismexis.magic.framework.event.EventObserver
 import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.framework.util.ui.hideKeyboard
 import com.harismexis.magic.presentation.base.BaseFragment
-import com.harismexis.magic.datamodel.result.CardsResult
 import com.harismexis.magic.presentation.screens.home.ui.adapter.HomeAdapter
 import com.harismexis.magic.presentation.screens.home.ui.viewholder.HeroViewHolder
 import com.harismexis.magic.presentation.screens.home.viewmodel.HomeViewModel
 
 class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
-    android.widget.SearchView.OnQueryTextListener {
+    android.widget.SearchView.OnQueryTextListener,
+    NavigationView.OnNavigationItemSelectedListener {
+
+    companion object {
+        const val MAGIC_API_WEBSITE = "https://docs.magicthegathering.io/"
+    }
 
     val viewModel: HomeViewModel by viewModels()
     private var binding: FragmentHomeBinding? = null
@@ -67,7 +78,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
 
     private fun setupToolbar() {
         val navController = findNavController()
-        val appBarConf = AppBarConfiguration(navController.graph, binding?.drawerLayout)
+        val appBarConf = AppBarConfiguration(navController.graph, binding?.homeDrawerLayout)
         binding?.apply { ->
             toolbar.setupWithNavController(navController, appBarConf)
             toolbar.inflateMenu(R.menu.menu_home)
@@ -79,7 +90,27 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
                 }
             }
             navView.setupWithNavController(navController)
+            navView.setNavigationItemSelectedListener(this@HomeFragment)
         }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.doc_dest -> {
+                val browserIntent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(MAGIC_API_WEBSITE)
+                )
+                startActivity(browserIntent)
+            }
+            else -> item.onNavDestinationSelected(findNavController())
+        }
+        closeDrawer()
+        return true
+    }
+
+    private fun closeDrawer() {
+        binding?.homeDrawerLayout?.closeDrawer(GravityCompat.START)
     }
 
     private fun observeLiveData() {

@@ -8,6 +8,8 @@
     <!-- vh hero -->
     <string name="content_description_character_image">hero Image</string>
 
+    <string name="api">Magic API</string>
+
     <!-- hero detail -->
     <string name="label_name">Name</string>
     <string name="label_status">Status</string>
