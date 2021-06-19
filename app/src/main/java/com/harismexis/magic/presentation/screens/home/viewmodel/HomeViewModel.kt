@@ -7,24 +7,24 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harismexis.magic.datamodel.repository.MagicLocal
 import com.harismexis.magic.datamodel.repository.MagicRemote
+import com.harismexis.magic.datamodel.result.CardsResult
 import com.harismexis.magic.framework.event.Event
 import com.harismexis.magic.framework.extensions.getErrorMessage
-import com.harismexis.magic.datamodel.result.CardsResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    val magicRemote: MagicRemote,
-    val magicLocal: MagicLocal
+    private val magicRemote: MagicRemote,
+    private val magicLocal: MagicLocal
 ) : ViewModel() {
 
     private val TAG = HomeViewModel::class.qualifiedName
 
-    private val mHerosResult = MutableLiveData<CardsResult>()
+    private val mCardsResult = MutableLiveData<CardsResult>()
     val cardsResult: LiveData<CardsResult>
-        get() = mHerosResult
+        get() = mCardsResult
 
     private val mShowErrorMessage = MutableLiveData<Event<String>>()
     val showErrorMessage : LiveData<Event<String>>
@@ -45,11 +45,11 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val items = magicRemote.getHeros(name)
-                mHerosResult.value = CardsResult.Success(items)
+                mCardsResult.value = CardsResult.Success(items)
                 magicLocal.updateHeros(items)
             } catch (e: Exception) {
                 Log.d(TAG, e.getErrorMessage())
-                mHerosResult.value = CardsResult.Error(e)
+                mCardsResult.value = CardsResult.Error(e)
                 mShowErrorMessage.value = Event(e.getErrorMessage())
             }
         }
