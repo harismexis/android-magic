@@ -1,4 +1,4 @@
-package com.harismexis.magic.framework.datasource.database
+package com.harismexis.magic.framework.datasource.database.db
 
 import android.content.Context
 import androidx.room.Database

@@ -1,4 +1,4 @@
-package com.harismexis.magic.presentation.result
+package com.harismexis.magic.datamodel.result
 
 import com.harismexis.magic.datamodel.domain.Hero
 

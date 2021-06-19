@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harismexis.magic.datamodel.repository.HeroLocal
 import com.harismexis.magic.framework.extensions.getErrorMessage
-import com.harismexis.magic.presentation.result.HeroDetailResult
+import com.harismexis.magic.datamodel.result.HeroDetailResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

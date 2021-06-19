@@ -15,7 +15,7 @@ import com.harismexis.magic.framework.extensions.populateWithGlide
 import com.harismexis.magic.framework.extensions.setTextOrUnknown
 import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.presentation.base.BaseFragment
-import com.harismexis.magic.presentation.result.HeroDetailResult
+import com.harismexis.magic.datamodel.result.HeroDetailResult
 import com.harismexis.magic.presentation.screens.herodetail.viewmodel.HeroDetailViewModel
 
 class HeroDetailFragment : BaseFragment() {

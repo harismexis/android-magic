@@ -15,7 +15,7 @@ import com.harismexis.magic.datamodel.domain.Hero
 import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.framework.util.ui.hideKeyboard
 import com.harismexis.magic.presentation.base.BaseFragment
-import com.harismexis.magic.presentation.result.HerosResult
+import com.harismexis.magic.datamodel.result.HerosResult
 import com.harismexis.magic.presentation.screens.home.ui.adapter.HerosAdapter
 import com.harismexis.magic.presentation.screens.home.ui.viewholder.HeroViewHolder
 import com.harismexis.magic.presentation.screens.home.viewmodel.HomeViewModel

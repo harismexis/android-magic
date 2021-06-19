@@ -3,7 +3,7 @@ package com.harismexis.magic.framework.extensions
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.harismexis.magic.framework.divider.RecyclerDivider
+import com.harismexis.magic.presentation.widget.RecyclerDivider
 
 fun RecyclerView.setDivider(
     @DrawableRes divider: Int

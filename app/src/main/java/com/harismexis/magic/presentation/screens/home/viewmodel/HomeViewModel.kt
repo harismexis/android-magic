@@ -9,7 +9,7 @@ import com.harismexis.magic.datamodel.repository.HeroLocal
 import com.harismexis.magic.datamodel.repository.HeroRemote
 import com.harismexis.magic.framework.event.Event
 import com.harismexis.magic.framework.extensions.getErrorMessage
-import com.harismexis.magic.presentation.result.HerosResult
+import com.harismexis.magic.datamodel.result.HerosResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

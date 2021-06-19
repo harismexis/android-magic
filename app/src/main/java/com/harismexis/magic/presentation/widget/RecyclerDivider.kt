@@ -1,4 +1,4 @@
-package com.harismexis.magic.framework.divider
+package com.harismexis.magic.presentation.widget
 
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
