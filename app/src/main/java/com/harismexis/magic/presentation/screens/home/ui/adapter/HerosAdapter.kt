@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.harismexis.magic.databinding.VhHeroItemBinding
 import com.harismexis.magic.presentation.screens.home.ui.viewholder.HeroViewHolder
-import com.harismexis.magic.datamodel.domain.Hero
+import com.harismexis.magic.datamodel.domain.Card
 
 class HerosAdapter(
-    private val models: List<Hero>,
+    private val models: List<Card>,
     private val clickListener: HeroViewHolder.HeroClickListener
 ) : RecyclerView.Adapter<HeroViewHolder>() {
 

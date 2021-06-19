@@ -5,34 +5,34 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.harismexis.magic.datamodel.repository.HeroLocal
+import com.harismexis.magic.datamodel.repository.MagicLocal
 import com.harismexis.magic.framework.extensions.getErrorMessage
-import com.harismexis.magic.datamodel.result.HeroDetailResult
+import com.harismexis.magic.datamodel.result.CardDetailResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HeroDetailViewModel @Inject constructor(
-    private val heroLocal: HeroLocal,
+class CardDetailViewModel @Inject constructor(
+    private val magicLocal: MagicLocal,
 ) : ViewModel() {
 
-    private val tag = HeroDetailViewModel::class.qualifiedName
+    private val tag = CardDetailViewModel::class.qualifiedName
 
-    private val mHeroDetailResult = MutableLiveData<HeroDetailResult>()
-    val heroDetailResult: LiveData<HeroDetailResult>
+    private val mHeroDetailResult = MutableLiveData<CardDetailResult>()
+    val cardDetailResult: LiveData<CardDetailResult>
         get() = mHeroDetailResult
 
     fun getHeroById(itemId: Int) {
         viewModelScope.launch {
             try {
-                val item = heroLocal.getHero(itemId)
+                val item = magicLocal.getHero(itemId)
                 item?.let {
-                    mHeroDetailResult.value = HeroDetailResult.Success(item)
+                    mHeroDetailResult.value = CardDetailResult.Success(item)
                 }
             } catch (e: Exception) {
                 Log.d(tag, e.getErrorMessage())
-                mHeroDetailResult.value = HeroDetailResult.Error(e.getErrorMessage())
+                mHeroDetailResult.value = CardDetailResult.Error(e.getErrorMessage())
             }
         }
     }

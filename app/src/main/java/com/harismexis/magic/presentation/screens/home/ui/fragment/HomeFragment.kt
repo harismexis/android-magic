@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.harismexis.magic.framework.event.EventObserver
 import com.harismexis.magic.R
 import com.harismexis.magic.databinding.FragmentHomeBinding
-import com.harismexis.magic.datamodel.domain.Hero
+import com.harismexis.magic.datamodel.domain.Card
 import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.framework.util.ui.hideKeyboard
 import com.harismexis.magic.presentation.base.BaseFragment
-import com.harismexis.magic.datamodel.result.HerosResult
+import com.harismexis.magic.datamodel.result.CardsResult
 import com.harismexis.magic.presentation.screens.home.ui.adapter.HerosAdapter
 import com.harismexis.magic.presentation.screens.home.ui.viewholder.HeroViewHolder
 import com.harismexis.magic.presentation.screens.home.viewmodel.HomeViewModel
@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
     val viewModel: HomeViewModel by viewModels()
     private var binding: FragmentHomeBinding? = null
     private lateinit var adapter: HerosAdapter
-    private var uiModels: MutableList<Hero> = mutableListOf()
+    private var uiModels: MutableList<Card> = mutableListOf()
 
     override fun initialiseViewBinding(
         inflater: LayoutInflater,
@@ -83,10 +83,10 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
     }
 
     private fun observeLiveData() {
-        viewModel.herosResult.observe(viewLifecycleOwner, {
+        viewModel.cardsResult.observe(viewLifecycleOwner, {
             when (it) {
-                is HerosResult.Success -> populate(it.items)
-                is HerosResult.Error -> populateError(it.error)
+                is CardsResult.Success -> populate(it.items)
+                is CardsResult.Error -> populateError(it.error)
             }
         })
 
@@ -95,7 +95,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
         })
     }
 
-    private fun populate(models: List<Hero>) {
+    private fun populate(models: List<Card>) {
         binding?.homeSwipeRefresh?.isRefreshing = false
         binding?.loadingProgressBar?.visibility = View.GONE
         binding?.homeList?.visibility = View.VISIBLE
@@ -110,7 +110,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
     }
 
     override fun onHeroClick(
-        item: Hero,
+        item: Card,
         position: Int
     ) {
         binding?.searchView?.clearFocus()

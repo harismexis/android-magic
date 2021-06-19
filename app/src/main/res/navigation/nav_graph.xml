@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/hero_detail_dest"
-        android:name="com.harismexis.magic.presentation.screens.herodetail.ui.fragment.HeroDetailFragment"
+        android:name="com.harismexis.magic.presentation.screens.herodetail.ui.fragment.CardDetailFragment"
         tools:layout="@layout/fragment_hero_detail">
 
         <argument

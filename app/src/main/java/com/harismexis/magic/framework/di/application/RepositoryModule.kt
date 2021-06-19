@@ -1,9 +1,9 @@
 package com.harismexis.magic.framework.di.application
 
-import com.harismexis.magic.datamodel.repository.HeroLocal
-import com.harismexis.magic.datamodel.repository.HeroRemote
-import com.harismexis.magic.framework.datasource.database.repository.HeroLocalRepository
-import com.harismexis.magic.framework.datasource.network.repository.HeroRemoteRepository
+import com.harismexis.magic.datamodel.repository.MagicLocal
+import com.harismexis.magic.datamodel.repository.MagicRemote
+import com.harismexis.magic.framework.datasource.database.repository.MagicLocalRepository
+import com.harismexis.magic.framework.datasource.network.repository.MagicRemoteRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,12 +15,12 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindHeroLocal(
-        localRepo: HeroLocalRepository
-    ): HeroLocal
+        localRepo: MagicLocalRepository
+    ): MagicLocal
 
     @Binds
     abstract fun bindHeroRemote(
-        remoteRepo: HeroRemoteRepository
-    ): HeroRemote
+        remoteRepo: MagicRemoteRepository
+    ): MagicRemote
 
 }

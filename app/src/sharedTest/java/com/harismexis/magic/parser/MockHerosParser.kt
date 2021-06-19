@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import com.harismexis.magic.framework.extensions.hero.toItems
-import com.harismexis.magic.datamodel.domain.Hero
+import com.harismexis.magic.datamodel.domain.Card
 import com.harismexis.magic.framework.datasource.network.model.RemoteHero
 import com.harismexis.magic.framework.datasource.network.model.RemoteHeros
 import java.lang.reflect.Type
@@ -36,22 +36,22 @@ class MockHerosParser(private val parser: BaseFileParser) {
     }
 
     // core models
-    fun getMockHerosWhenJsonHasAllItemsValid(): List<Hero> =
+    fun getMockHerosWhenJsonHasAllItemsValid(): List<Card> =
         getMockRemoteHerosWhenJsonHasAllIdsValid().toItems()
 
-    fun getMockHerosWhenJsonHas6InvalidIds(): List<Hero> =
+    fun getMockHerosWhenJsonHas6InvalidIds(): List<Card> =
         getMockRemoteHerosWhenJsonHas6InvalidIds().toItems()
 
-    fun getMockHerosWhenJsonHas3InvalidIds(): List<Hero> =
+    fun getMockHerosWhenJsonHas3InvalidIds(): List<Card> =
         getMockRemoteHerosWhenJsonHas3InvalidIds().toItems()
 
-    fun getMockHerosWhenJsonHasSomeEmptyItems(): List<Hero> =
+    fun getMockHerosWhenJsonHasSomeEmptyItems(): List<Card> =
         getMockRemoteHerosWhenJsonHasSomeEmptyItems().toItems()
 
-    fun getMockHerosWhenJsonHasAllIdsInvalid(): List<Hero> =
+    fun getMockHerosWhenJsonHasAllIdsInvalid(): List<Card> =
         getMockRemoteHerosWhenJsonHasAllIdsInvalid().toItems()
 
-    fun getMockHerosWhenJsonIsEmpty(): List<Hero> =
+    fun getMockHerosWhenJsonIsEmpty(): List<Card> =
         getMockRemoteHerosWhenJsonIsEmpty().toItems()
 
     // remote models

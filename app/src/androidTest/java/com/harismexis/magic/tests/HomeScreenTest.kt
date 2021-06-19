@@ -1,8 +1,8 @@
 package com.harismexis.magic.tests
 
 import androidx.lifecycle.MutableLiveData
-import com.harismexis.magic.datamodel.domain.Hero
-import com.harismexis.magic.datamodel.result.HerosResult
+import com.harismexis.magic.datamodel.domain.Card
+import com.harismexis.magic.datamodel.result.CardsResult
 import com.harismexis.magic.presentation.screens.home.viewmodel.HomeViewModel
 import com.harismexis.magic.setup.base.InstrumentedTestSetup
 import dagger.hilt.android.testing.BindValue
@@ -20,9 +20,9 @@ class HomeScreenTest: InstrumentedTestSetup() {
     @BindValue
     @JvmField
     var mockViewModel : HomeViewModel = mockk(relaxed = true)
-    var fakeHerosResult = MutableLiveData<HerosResult>()
-    private lateinit var mockHeros: List<Hero>
-    private lateinit var herosSuccess: HerosResult.Success
+    var fakeHerosResult = MutableLiveData<CardsResult>()
+    private lateinit var mockCards: List<Card>
+    private lateinit var cardsSuccess: CardsResult.Success
 
 
 

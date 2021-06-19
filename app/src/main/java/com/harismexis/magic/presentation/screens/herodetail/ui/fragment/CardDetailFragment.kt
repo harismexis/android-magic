@@ -10,27 +10,27 @@ import androidx.navigation.ui.setupWithNavController
 import com.harismexis.magic.R
 import com.harismexis.magic.databinding.FragmentHeroDetailBinding
 import com.harismexis.magic.databinding.HeroDetailViewBinding
-import com.harismexis.magic.datamodel.domain.Hero
+import com.harismexis.magic.datamodel.domain.Card
+import com.harismexis.magic.datamodel.result.CardDetailResult
 import com.harismexis.magic.framework.extensions.populateWithGlide
 import com.harismexis.magic.framework.extensions.setTextOrUnknown
 import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.presentation.base.BaseFragment
-import com.harismexis.magic.datamodel.result.HeroDetailResult
-import com.harismexis.magic.presentation.screens.herodetail.viewmodel.HeroDetailViewModel
+import com.harismexis.magic.presentation.screens.herodetail.viewmodel.CardDetailViewModel
 
-class HeroDetailFragment : BaseFragment() {
+class CardDetailFragment : BaseFragment() {
 
     private var binding: FragmentHeroDetailBinding? = null
     private var detailBinding: HeroDetailViewBinding? = null
-    private val viewModel: HeroDetailViewModel by viewModels()
+    private val viewModel: CardDetailViewModel by viewModels()
 
     companion object {
         private const val ARG_HERO_ID = "actorId"
 
-        fun newInstance(actorId: Int): HeroDetailFragment {
+        fun newInstance(actorId: Int): CardDetailFragment {
             val args = Bundle()
             args.putInt(ARG_HERO_ID, actorId)
-            val fragment = HeroDetailFragment()
+            val fragment = CardDetailFragment()
             fragment.arguments = args
             return fragment
         }
@@ -64,10 +64,10 @@ class HeroDetailFragment : BaseFragment() {
     override fun getRootView() = binding?.root
 
     private fun observeLiveData() {
-        viewModel.heroDetailResult.observe(viewLifecycleOwner, {
+        viewModel.cardDetailResult.observe(viewLifecycleOwner, {
             when (it) {
-                is HeroDetailResult.Success -> populate(it.item)
-                is HeroDetailResult.Error -> populateError(it.error)
+                is CardDetailResult.Success -> populate(it.item)
+                is CardDetailResult.Error -> populateError(it.error)
             }
         })
     }
@@ -85,15 +85,15 @@ class HeroDetailFragment : BaseFragment() {
         }
     }
 
-    private fun populate(hero: Hero) {
+    private fun populate(card: Card) {
         binding?.let {
-            it.toolbarTitle.text = hero.name
+            it.toolbarTitle.text = card.name
             it.toolbar.setNavigationIcon(R.drawable.ic_arrow_left_white_rounded_24dp)
         }
         detailBinding?.let {
-            requireContext().populateWithGlide(it.img, hero.imageUrl)
-            it.txtName.setTextOrUnknown(hero.name)
-            it.txtType.setTextOrUnknown(hero.type)
+            requireContext().populateWithGlide(it.img, card.imageUrl)
+            it.txtName.setTextOrUnknown(card.name)
+            it.txtType.setTextOrUnknown(card.type)
         }
     }
 

@@ -2,7 +2,7 @@ package com.harismexis.magic.presentation.screens.home.ui.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.harismexis.magic.databinding.VhHeroItemBinding
-import com.harismexis.magic.datamodel.domain.Hero
+import com.harismexis.magic.datamodel.domain.Card
 import com.harismexis.magic.framework.extensions.populateWithGlide
 
 class HeroViewHolder(
@@ -11,11 +11,11 @@ class HeroViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     interface HeroClickListener {
-        fun onHeroClick(item: Hero, position: Int)
+        fun onHeroClick(item: Card, position: Int)
     }
 
     fun bind(
-        item: Hero,
+        item: Card,
         position: Int
     ) {
         itemView.context.populateWithGlide(binding.imgView, item.imageUrl)
