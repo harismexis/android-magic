@@ -3,9 +3,9 @@ package com.harismexis.magic.framework.data.database.repository
 import com.harismexis.magic.core.domain.Card
 import com.harismexis.magic.core.repository.MagicLocal
 import com.harismexis.magic.framework.data.database.datasource.MagicLocalDao
-import com.harismexis.magic.framework.extensions.hero.toItem
-import com.harismexis.magic.framework.extensions.hero.toItems
-import com.harismexis.magic.framework.extensions.hero.toLocalItems
+import com.harismexis.magic.framework.extensions.card.toItem
+import com.harismexis.magic.framework.extensions.card.toItems
+import com.harismexis.magic.framework.extensions.card.toLocalItems
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -3,7 +3,7 @@ package com.harismexis.magic.framework.di.repository
 import com.harismexis.magic.core.repository.MagicLocal
 import com.harismexis.magic.core.repository.MagicRemote
 import com.harismexis.magic.framework.data.database.repository.MagicLocalRepository
-import com.harismexis.magic.framework.data.network.repository.MagicRemoteRepository
+import com.harismexis.magic.framework.data.network.retrofit.repository.MagicRemoteRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

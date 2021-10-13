@@ -1,7 +1,7 @@
-package com.harismexis.magic.framework.data.network.datasource
+package com.harismexis.magic.framework.data.network.retrofit.datasource
 
-import com.harismexis.magic.framework.data.network.api.MagicApi
 import com.harismexis.magic.framework.data.network.model.RemoteCards
+import com.harismexis.magic.framework.data.network.retrofit.api.MagicApi
 import javax.inject.Inject
 import javax.inject.Singleton
 

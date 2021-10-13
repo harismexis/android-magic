@@ -1,4 +1,4 @@
-package com.harismexis.magic.framework.data.network.api
+package com.harismexis.magic.framework.data.network.retrofit.api
 
 import com.harismexis.magic.framework.data.network.model.RemoteCards
 import retrofit2.http.GET
