@@ -1,4 +1,4 @@
-package com.harismexis.magic.framework.di.application
+package com.harismexis.magic.framework.di.datasource
 
 import android.content.Context
 import com.harismexis.magic.framework.data.database.datasource.MagicLocalDao
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-class ApplicationModule {
+class DatasourceModule {
 
     @Provides
     @Singleton

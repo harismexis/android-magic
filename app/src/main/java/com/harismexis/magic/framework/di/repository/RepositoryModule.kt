@@ -1,4 +1,4 @@
-package com.harismexis.magic.framework.di.application
+package com.harismexis.magic.framework.di.repository
 
 import com.harismexis.magic.core.repository.MagicLocal
 import com.harismexis.magic.core.repository.MagicRemote

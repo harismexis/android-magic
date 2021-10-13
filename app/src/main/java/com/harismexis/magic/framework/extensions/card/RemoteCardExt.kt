@@ -1,4 +1,4 @@
-package com.harismexis.magic.framework.extensions.hero
+package com.harismexis.magic.framework.extensions.card
 
 import com.harismexis.magic.core.domain.Card
 import com.harismexis.magic.framework.data.network.model.RemoteCard

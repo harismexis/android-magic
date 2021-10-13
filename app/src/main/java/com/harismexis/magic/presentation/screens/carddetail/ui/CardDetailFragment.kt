@@ -1,4 +1,4 @@
-package com.harismexis.magic.presentation.screens.carddetail.ui.fragment
+package com.harismexis.magic.presentation.screens.carddetail.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
