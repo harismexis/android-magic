@@ -44,7 +44,7 @@ class HomeViewModel @Inject constructor(
     private fun fetchRemoteHeros(name: String? = null) {
         viewModelScope.launch {
             try {
-                val items = magicRemote.getHeros(name)
+                val items = magicRemote.getCards(name)
                 mCardsResult.value = CardsResult.Success(items)
                 magicLocal.updateHeros(items)
             } catch (e: Exception) {

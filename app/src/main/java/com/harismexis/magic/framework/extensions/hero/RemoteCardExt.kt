@@ -1,10 +1,10 @@
 package com.harismexis.magic.framework.extensions.hero
 
 import com.harismexis.magic.datamodel.domain.Card
-import com.harismexis.magic.framework.datasource.network.model.RemoteHero
-import com.harismexis.magic.framework.datasource.network.model.RemoteHeros
+import com.harismexis.magic.framework.datasource.network.model.RemoteCard
+import com.harismexis.magic.framework.datasource.network.model.RemoteCards
 
-fun RemoteHeros?.toItems(): List<Card> {
+fun RemoteCards?.toItems(): List<Card> {
     val items = mutableListOf<Card>()
     if (this == null) return items.toList()
     if(this.cards.isNullOrEmpty()) return items.toList()
@@ -15,7 +15,7 @@ fun RemoteHeros?.toItems(): List<Card> {
     return items.toList()
 }
 
-private fun RemoteHero.toItem(id: String): Card {
+private fun RemoteCard.toItem(id: String): Card {
     return Card(
         id,
         this.name,

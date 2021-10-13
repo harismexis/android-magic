@@ -14,12 +14,12 @@ import dagger.hilt.components.SingletonComponent
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun bindHeroLocal(
+    abstract fun bindMagicLocal(
         localRepo: MagicLocalRepository
     ): MagicLocal
 
     @Binds
-    abstract fun bindHeroRemote(
+    abstract fun bindMagicRemote(
         remoteRepo: MagicRemoteRepository
     ): MagicRemote
 

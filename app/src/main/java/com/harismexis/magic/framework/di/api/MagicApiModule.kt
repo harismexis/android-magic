@@ -3,7 +3,7 @@ package com.harismexis.magic.framework.di.api
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.harismexis.magic.BuildConfig
-import com.harismexis.magic.framework.datasource.network.api.RickAndMortyApi
+import com.harismexis.magic.framework.datasource.network.api.MagicApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,11 +14,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @InstallIn(SingletonComponent::class)
 @Module
-class RickAndMortyApiModule {
+class MagicApiModule {
 
     @Provides
-    fun provideRickAndMortyApi(retrofit: Retrofit): RickAndMortyApi {
-        return retrofit.create(RickAndMortyApi::class.java)
+    fun provideMagicApi(retrofit: Retrofit): MagicApi {
+        return retrofit.create(MagicApi::class.java)
     }
 
     @Provides
