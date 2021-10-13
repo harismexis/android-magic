@@ -26,7 +26,7 @@ class CardDetailViewModel @Inject constructor(
     fun getHeroById(id: String) {
         viewModelScope.launch {
             try {
-                val item = magicLocal.getHero(id)
+                val item = magicLocal.getCard(id)
                 item?.let {
                     mCardDetailResult.value = CardDetailResult.Success(item)
                 }

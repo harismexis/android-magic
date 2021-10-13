@@ -10,15 +10,15 @@ import com.harismexis.magic.framework.datasource.database.table.LocalCard
 interface MagicLocalDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertHeros(items: List<LocalCard>)
+    suspend fun insertCards(items: List<LocalCard>)
 
     @Query("SELECT * FROM magic_cards_table WHERE id = :itemId")
-    suspend fun getHeroById(itemId: String): LocalCard?
+    suspend fun getCard(itemId: String): LocalCard?
 
     @Query("SELECT * FROM magic_cards_table")
-    suspend fun getAllHeros(): List<LocalCard?>?
+    suspend fun getAllCards(): List<LocalCard?>?
 
     @Query("DELETE FROM magic_cards_table")
-    suspend fun deleteAllHeros()
+    suspend fun deleteAllCards()
 
 }

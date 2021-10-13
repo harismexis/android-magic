@@ -56,7 +56,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
     private fun setupSwipeToRefresh() {
         binding?.homeSwipeRefresh?.setOnRefreshListener {
             binding?.homeSwipeRefresh?.isRefreshing = true
-            viewModel.fetchHeros()
+            viewModel.fetchCards()
         }
     }
 
@@ -73,7 +73,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
 
     override fun onViewCreated() {
         observeLiveData()
-        viewModel.fetchHeros()
+        viewModel.fetchCards()
     }
 
     private fun setupToolbar() {

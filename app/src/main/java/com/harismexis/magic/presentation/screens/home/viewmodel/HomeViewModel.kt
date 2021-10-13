@@ -32,21 +32,21 @@ class HomeViewModel @Inject constructor(
 
     private var searchQuery: String? = null
 
-    fun fetchHeros() {
-        fetchRemoteHeros(searchQuery)
+    fun fetchCards() {
+        fetchRemoteCards(searchQuery)
     }
 
     fun updateSearchQuery(query: String?) {
         searchQuery = query
-        fetchRemoteHeros(query)
+        fetchRemoteCards(query)
     }
 
-    private fun fetchRemoteHeros(name: String? = null) {
+    private fun fetchRemoteCards(name: String? = null) {
         viewModelScope.launch {
             try {
                 val items = magicRemote.getCards(name)
                 mCardsResult.value = CardsResult.Success(items)
-                magicLocal.updateHeros(items)
+                magicLocal.updateCards(items)
             } catch (e: Exception) {
                 Log.d(TAG, e.getErrorMessage())
                 mCardsResult.value = CardsResult.Error(e)

@@ -14,21 +14,21 @@ class MagicLocalRepository @Inject constructor(
     private val dao: MagicLocalDao
 ): MagicLocal {
 
-    override suspend fun updateHeros(items: List<Card>) {
-        dao.deleteAllHeros()
-        dao.insertHeros(items.toLocalItems())
+    override suspend fun updateCards(items: List<Card>) {
+        dao.deleteAllCards()
+        dao.insertCards(items.toLocalItems())
     }
 
-    override suspend fun getHero(id: String): Card? {
-        val localItem = dao.getHeroById(id)
+    override suspend fun getCard(id: String): Card? {
+        val localItem = dao.getCard(id)
         localItem?.let {
             return it.toItem()
         }
         return null
     }
 
-    override suspend fun getHeros(): List<Card> {
-        return dao.getAllHeros().toItems()
+    override suspend fun getCards(): List<Card> {
+        return dao.getAllCards().toItems()
     }
 
 }
