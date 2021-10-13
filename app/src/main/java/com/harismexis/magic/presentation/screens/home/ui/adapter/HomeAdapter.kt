@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.harismexis.magic.databinding.VhHeroItemBinding
-import com.harismexis.magic.datamodel.domain.Card
+import com.harismexis.magic.core.domain.Card
 import com.harismexis.magic.presentation.screens.home.ui.viewholder.HeroViewHolder
 
 class HomeAdapter(

@@ -5,9 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.harismexis.magic.datamodel.repository.MagicLocal
-import com.harismexis.magic.datamodel.repository.MagicRemote
-import com.harismexis.magic.datamodel.result.CardsResult
+import com.harismexis.magic.core.repository.MagicLocal
+import com.harismexis.magic.core.repository.MagicRemote
+import com.harismexis.magic.core.result.CardsResult
 import com.harismexis.magic.framework.event.Event
 import com.harismexis.magic.framework.extensions.getErrorMessage
 import dagger.hilt.android.lifecycle.HiltViewModel

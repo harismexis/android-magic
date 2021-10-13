@@ -3,7 +3,7 @@ package com.harismexis.magic.framework.di.api
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.harismexis.magic.BuildConfig
-import com.harismexis.magic.framework.datasource.network.api.MagicApi
+import com.harismexis.magic.framework.data.network.api.MagicApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

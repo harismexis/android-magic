@@ -1,8 +1,8 @@
 package com.harismexis.magic.framework.extensions.hero
 
-import com.harismexis.magic.datamodel.domain.Card
-import com.harismexis.magic.framework.datasource.network.model.RemoteCard
-import com.harismexis.magic.framework.datasource.network.model.RemoteCards
+import com.harismexis.magic.core.domain.Card
+import com.harismexis.magic.framework.data.network.model.RemoteCard
+import com.harismexis.magic.framework.data.network.model.RemoteCards
 
 fun RemoteCards?.toItems(): List<Card> {
     val items = mutableListOf<Card>()

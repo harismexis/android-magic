@@ -15,9 +15,9 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.harismexis.magic.R
+import com.harismexis.magic.core.domain.Card
+import com.harismexis.magic.core.result.CardsResult
 import com.harismexis.magic.databinding.FragmentHomeBinding
-import com.harismexis.magic.datamodel.domain.Card
-import com.harismexis.magic.datamodel.result.CardsResult
 import com.harismexis.magic.framework.event.EventObserver
 import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.framework.util.ui.hideKeyboard

@@ -1,7 +1,7 @@
 package com.harismexis.magic.framework.extensions.hero
 
-import com.harismexis.magic.datamodel.domain.Card
-import com.harismexis.magic.framework.datasource.database.table.LocalCard
+import com.harismexis.magic.core.domain.Card
+import com.harismexis.magic.framework.data.database.table.LocalCard
 
 fun List<LocalCard?>?.toItems(): List<Card> {
     val items = mutableListOf<Card>()

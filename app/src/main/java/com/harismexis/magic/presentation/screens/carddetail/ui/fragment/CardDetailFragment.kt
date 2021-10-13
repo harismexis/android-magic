@@ -10,8 +10,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.harismexis.magic.R
 import com.harismexis.magic.databinding.CardDetailViewBinding
 import com.harismexis.magic.databinding.FragmentCardDetailBinding
-import com.harismexis.magic.datamodel.domain.Card
-import com.harismexis.magic.datamodel.result.CardDetailResult
+import com.harismexis.magic.core.domain.Card
+import com.harismexis.magic.core.result.CardDetailResult
 import com.harismexis.magic.framework.extensions.populateWithGlide
 import com.harismexis.magic.framework.extensions.setTextOrUnknown
 import com.harismexis.magic.framework.extensions.showToast
