@@ -3,7 +3,7 @@ package com.harismexis.magic.framework.di.api
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.harismexis.magic.BuildConfig
-import com.harismexis.magic.framework.data.network.retrofit.api.MagicApi
+import com.harismexis.magic.framework.data.network.retrofit.api.RetrofitApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,8 +17,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MagicApiModule {
 
     @Provides
-    fun provideMagicApi(retrofit: Retrofit): MagicApi {
-        return retrofit.create(MagicApi::class.java)
+    fun provideMagicApi(retrofit: Retrofit): RetrofitApi {
+        return retrofit.create(RetrofitApi::class.java)
     }
 
     @Provides

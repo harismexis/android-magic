@@ -4,7 +4,7 @@ import com.harismexis.magic.framework.data.network.model.RemoteCards
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface MagicApi {
+interface RetrofitApi {
 
     @GET("cards")
     suspend fun getCards(
