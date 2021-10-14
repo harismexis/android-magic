@@ -3,6 +3,8 @@ package com.harismexis.magic.framework.di.datasource
 import android.content.Context
 import com.harismexis.magic.framework.data.database.datasource.MagicLocalDao
 import com.harismexis.magic.framework.data.database.db.MagicDatabase
+import com.harismexis.magic.framework.data.network.retrofit.api.RetrofitApi
+import com.harismexis.magic.framework.data.network.retrofit.datasource.RetrofitDatasource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,6 +20,11 @@ class DatasourceModule {
     @Singleton
     fun provideLocalDao(@ApplicationContext app: Context): MagicLocalDao {
         return MagicDatabase.getDatabase(app).getDao()
+    }
+
+    @Provides
+    fun provideRetrofitDatasource(api: RetrofitApi): RetrofitDatasource {
+        return RetrofitDatasource(api)
     }
 
 }

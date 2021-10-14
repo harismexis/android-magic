@@ -3,7 +3,7 @@ package com.harismexis.magic.framework.di.repository
 import com.harismexis.magic.core.repository.MagicLocal
 import com.harismexis.magic.core.repository.MagicRemote
 import com.harismexis.magic.framework.data.database.repository.MagicLocalRepository
-import com.harismexis.magic.framework.data.network.httpclient.HttpClientRepository
+import com.harismexis.magic.framework.data.network.repository.NetworkRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,13 +18,9 @@ abstract class RepositoryModule {
         localRepo: MagicLocalRepository
     ): MagicLocal
 
-//    @Binds
-//    abstract fun bindMagicRemote(
-//        remoteRepo: RetrofitRepository
-//    ): MagicRemote
     @Binds
     abstract fun bindMagicRemote(
-        remoteRepo: HttpClientRepository
+        remoteRepo: NetworkRepository
     ): MagicRemote
 
 }

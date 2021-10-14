@@ -61,18 +61,20 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-//    private fun fetchRemoteCards(name: String? = null) {
-//        viewModelScope.launch {
-//            try {
-//                val items = magicRemote.getCards(name)
-//                mCardsResult.value = CardsResult.Success(items)
-//                magicLocal.updateCards(items)
-//            } catch (e: Exception) {
-//                Log.d(TAG, e.getErrorMessage())
-//                mCardsResult.value = CardsResult.Error(e)
-//                mShowErrorMessage.value = Event(e.getErrorMessage())
-//            }
-//        }
-//    }
+    /*
+    // Version with retrofit
+    private fun fetchRemoteCards(name: String? = null) {
+        viewModelScope.launch {
+            try {
+                val items = magicRemote.getCards(name)
+                mCardsResult.value = CardsResult.Success(items)
+                magicLocal.updateCards(items)
+            } catch (e: Exception) {
+                Log.d(TAG, e.getErrorMessage())
+                mCardsResult.value = CardsResult.Error(e)
+                mShowErrorMessage.value = Event(e.getErrorMessage())
+            }
+        }
+    } */
 
 }
