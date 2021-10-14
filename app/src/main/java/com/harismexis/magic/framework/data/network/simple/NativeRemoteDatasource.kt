@@ -1,10 +1,11 @@
-package com.harismexis.magic.framework.data.network.httpclient
+package com.harismexis.magic.framework.data.network.simple
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
+import com.harismexis.magic.BuildConfig
 import com.harismexis.magic.framework.data.network.model.RemoteCards
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.IOException
@@ -16,14 +17,14 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class NativeRemoteDatasource @Inject constructor() {
+class NativeRemoteDatasource @Inject constructor(
+    private val ioDispatcher: CoroutineDispatcher
+) {
 
     fun getCardsBlocking(
         name: String?
     ): RemoteCards {
-        val baseURL = "https://api.magicthegathering.io/v1/"
-        val loginUrl = baseURL + "cards?name=" + name
-        val url = URL(loginUrl)
+        val url = URL(BuildConfig.MAGIC_API_BASE_URL + "cards?name=" + name)
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "GET"
             setRequestProperty("Content-Type", "application/json; utf-8")
@@ -36,7 +37,7 @@ class NativeRemoteDatasource @Inject constructor() {
     suspend fun getCardsMainSafe(
         name: String?
     ): RemoteCards {
-        return withContext(Dispatchers.IO) {
+        return withContext(ioDispatcher) {
             getCardsBlocking(name)
         }
     }
@@ -46,18 +47,13 @@ class NativeRemoteDatasource @Inject constructor() {
         return convertToModel(str)
     }
 
-    private fun convertStreamToString(inStream: InputStream): String? {
+    private fun convertStreamToString(inStream: InputStream): String {
         val reader = BufferedReader(InputStreamReader(inStream))
         val sb = StringBuilder()
         var line: String?
         try {
             while (reader.readLine().also { line = it } != null) {
-                sb.append(
-                    """
-                    $line
-                    
-                    """.trimIndent()
-                )
+                sb.append("""$line""".trimIndent())
             }
         } catch (e: IOException) {
             e.printStackTrace()

@@ -39,10 +39,11 @@ class HomeViewModel @Inject constructor(
 
     fun updateSearchQuery(query: String?) {
         searchQuery = query
-        fetchRemoteCards(query)
+        //fetchAndMakeMainSafe(query)
+        fetchAlreadyMainSafe(query)
     }
 
-    private fun fetchRemoteCards(name: String? = null) {
+    private fun fetchAndMakeMainSafe(name: String? = null) {
         // Create a new coroutine with Dispatchers.IO to move
         // the execution off the UI thread. It would be better if
         // the caller did not need to specify Dispatchers and be
@@ -61,9 +62,26 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    /*
-    // Version with retrofit
+    private fun fetchAlreadyMainSafe(name: String? = null) {
+        // No need to set Dispatcher, we call the main safe
+        // version of getCards
+        viewModelScope.launch() {
+            try {
+                val items = magicRemote.getCardsMainSafe(name)
+                // Using value cause we are in UI Thread
+                mCardsResult.value = CardsResult.Success(items)
+                magicLocal.updateCards(items)
+            } catch (e: Exception) {
+                Log.d(TAG, e.getErrorMessage())
+                mCardsResult.value = CardsResult.Error(e)
+                mShowErrorMessage.value = Event(e.getErrorMessage())
+            }
+        }
+    }
+
     private fun fetchRemoteCards(name: String? = null) {
+        // Using Retrofit here, no need to worry for Dispatchers,
+        // cause retrofit uses its own, it's always main safe
         viewModelScope.launch {
             try {
                 val items = magicRemote.getCards(name)
@@ -75,6 +93,6 @@ class HomeViewModel @Inject constructor(
                 mShowErrorMessage.value = Event(e.getErrorMessage())
             }
         }
-    } */
+    }
 
 }
