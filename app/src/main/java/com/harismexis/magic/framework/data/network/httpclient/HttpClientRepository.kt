@@ -23,12 +23,9 @@ class HttpClientRepository @Inject constructor() : MagicRemote {
         const val BASE_URL = "https://api.magicthegathering.io/v1/"
     }
 
+    // Not Used
     override suspend fun getCards(name: String?): List<Card> =
         listOf()
-
-//    override fun getCardsBlocking(name: String?): List<Card> {
-//        TODO("Not yet implemented")
-//    }
 
     override fun getCardsBlocking(
         name: String?
