@@ -14,4 +14,8 @@ class RetrofitRepository @Inject constructor(
 
     override suspend fun getCards(name: String?): List<Card> = datasource.getCards(name).toItems()
 
+    // TODO: Not used, just override to avoid compile error
+    override fun getCardsBlocking(name: String?): List<Card> = listOf()
+
+
 }

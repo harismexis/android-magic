@@ -11,6 +11,7 @@ import com.harismexis.magic.core.result.CardsResult
 import com.harismexis.magic.framework.event.Event
 import com.harismexis.magic.framework.extensions.getErrorMessage
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,7 +28,7 @@ class HomeViewModel @Inject constructor(
         get() = mCardsResult
 
     private val mShowErrorMessage = MutableLiveData<Event<String>>()
-    val showErrorMessage : LiveData<Event<String>>
+    val showErrorMessage: LiveData<Event<String>>
         get() = mShowErrorMessage
 
     private var searchQuery: String? = null
@@ -42,17 +43,36 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun fetchRemoteCards(name: String? = null) {
-        viewModelScope.launch {
+        // Create a new coroutine with Dispatchers.IO to move
+        // the execution off the UI thread. It would be better if
+        // the caller did not need to specify Dispatchers and be
+        // sure that the function is safe to call in UI Thread (i.e. main safe)
+        viewModelScope.launch(Dispatchers.IO) {
             try {
-                val items = magicRemote.getCards(name)
-                mCardsResult.value = CardsResult.Success(items)
+                val items = magicRemote.getCardsBlocking(name)
+                // Using postValue cause we are in a background Thread
+                mCardsResult.postValue(CardsResult.Success(items))
                 magicLocal.updateCards(items)
             } catch (e: Exception) {
                 Log.d(TAG, e.getErrorMessage())
-                mCardsResult.value = CardsResult.Error(e)
+                mCardsResult.postValue(CardsResult.Error(e))
                 mShowErrorMessage.value = Event(e.getErrorMessage())
             }
         }
     }
+
+//    private fun fetchRemoteCards(name: String? = null) {
+//        viewModelScope.launch {
+//            try {
+//                val items = magicRemote.getCards(name)
+//                mCardsResult.value = CardsResult.Success(items)
+//                magicLocal.updateCards(items)
+//            } catch (e: Exception) {
+//                Log.d(TAG, e.getErrorMessage())
+//                mCardsResult.value = CardsResult.Error(e)
+//                mShowErrorMessage.value = Event(e.getErrorMessage())
+//            }
+//        }
+//    }
 
 }

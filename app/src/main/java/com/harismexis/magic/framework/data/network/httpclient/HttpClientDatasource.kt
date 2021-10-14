@@ -4,6 +4,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class HttpClientRemoteDatasource @Inject constructor() {
+class HttpClientDatasource @Inject constructor() {
 
 }
