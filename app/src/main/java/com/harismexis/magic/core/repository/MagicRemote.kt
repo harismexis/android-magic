@@ -1,6 +1,7 @@
 package com.harismexis.magic.core.repository
 
 import com.harismexis.magic.core.domain.Card
+import com.harismexis.magic.core.domain.Set
 
 interface MagicRemote {
 
@@ -10,7 +11,7 @@ interface MagicRemote {
 
     suspend fun getCardsMainSafe(name: String? = null): List<Card>
 
-//    fun getSetsBlocking(name: String? = null): List<Card>
-//
-//    suspend fun getSetsMainSafe(name: String? = null): List<Card>
+    fun getSetsBlocking(name: String? = null): List<Set>
+
+    suspend fun getSetsMainSafe(name: String? = null): List<Set>
 }

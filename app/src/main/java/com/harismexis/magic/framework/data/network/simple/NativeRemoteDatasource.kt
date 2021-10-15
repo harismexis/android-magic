@@ -2,6 +2,7 @@ package com.harismexis.magic.framework.data.network.simple
 
 import com.harismexis.magic.BuildConfig
 import com.harismexis.magic.framework.data.network.model.cards.RemoteCards
+import com.harismexis.magic.framework.data.network.model.sets.RemoteSets
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import java.net.HttpURLConnection
@@ -23,7 +24,6 @@ class NativeRemoteDatasource @Inject constructor(
             requestMethod = "GET"
             setRequestProperty("Content-Type", "application/json; utf-8")
             setRequestProperty("Accept", "application/json")
-            //return toCards(inputStream)
             return httpHelper.streamToModel(inputStream)
         }
         throw Exception("Cannot open HttpURLConnection")
@@ -37,9 +37,25 @@ class NativeRemoteDatasource @Inject constructor(
         }
     }
 
-//    private fun toCards(inStream: InputStream): RemoteCards {
-//        val str = httpHelper.convertStreamToString(inStream)
-//        return httpHelper.convertToModel(str)
-//    }
+    fun getSetsBlocking(
+        name: String?
+    ): RemoteSets {
+        val url = URL(BuildConfig.MAGIC_API_BASE_URL + "sets?name=" + name)
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "GET"
+            setRequestProperty("Content-Type", "application/json; utf-8")
+            setRequestProperty("Accept", "application/json")
+            return httpHelper.streamToModel(inputStream)
+        }
+        throw Exception("Cannot open HttpURLConnection")
+    }
+
+    suspend fun getSetsMainSafe(
+        name: String?
+    ): RemoteSets {
+        return withContext(ioDispatcher) {
+            getSetsBlocking(name)
+        }
+    }
 
 }
