@@ -39,16 +39,17 @@ class HomeViewModel @Inject constructor(
     private var searchQuery: String? = null
 
     fun fetchCards() {
-        fetchRemoteCards(searchQuery)
+        //fetchRemoteCards(searchQuery)
+        fetchMagic()
     }
 
     fun updateSearchQuery(query: String?) {
         searchQuery = query
-        //fetchAndMakeMainSafe(query)
+        // fetchButMakeMainSafe(query)
         fetchAlreadyMainSafe(query)
     }
 
-    private fun fetchAndMakeMainSafe(name: String? = null) {
+    private fun fetchButMakeMainSafe(name: String? = null) {
         // Create a new coroutine with Dispatchers.IO to move
         // the execution off the UI thread. It would be better if
         // the caller did not need to specify Dispatchers and be
@@ -100,11 +101,14 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun fetchRemoteSets(name: String? = null) {
+    private fun fetchMagic() {
         viewModelScope.launch {
             try {
-                val items = magicRemote.getSetsMainSafe(name)
-                mSetsResult.value = SetsResult.Success(items)
+                val magic = magicRemote.getMagic()
+                val cards = magic.cards
+                magicLocal.updateCards(cards)
+                mCardsResult.value = CardsResult.Success(cards)
+                mSetsResult.value = SetsResult.Success(magic.sets)
             } catch (e: Exception) {
                 Log.d(TAG, e.getErrorMessage())
                 mSetsResult.value = SetsResult.Error(e)

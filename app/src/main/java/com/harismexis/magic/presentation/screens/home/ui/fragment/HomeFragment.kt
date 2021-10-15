@@ -77,7 +77,6 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
     override fun onViewCreated() {
         observeLiveData()
         viewModel.fetchCards()
-        viewModel.fetchRemoteSets()
     }
 
     private fun setupToolbar() {

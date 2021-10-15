@@ -1,6 +1,7 @@
 package com.harismexis.magic.framework.data.network.repository
 
 import com.harismexis.magic.core.domain.Card
+import com.harismexis.magic.core.domain.Magic
 import com.harismexis.magic.core.domain.Set
 import com.harismexis.magic.core.repository.MagicRemote
 import com.harismexis.magic.framework.data.network.model.cards.toCards
@@ -29,4 +30,7 @@ class NetworkRepository @Inject constructor(
 
     override suspend fun getSetsMainSafe(name: String?): List<Set> =
         nativeRemote.getSetsMainSafe(name).toSets()
+
+    override suspend fun getMagic(): Magic =
+        nativeRemote.getMagic()
 }
