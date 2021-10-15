@@ -1,4 +1,4 @@
-package com.harismexis.magic.framework.data.network.model
+package com.harismexis.magic.framework.data.network.model.cards
 
 data class RemoteCard(
     val id: String?,

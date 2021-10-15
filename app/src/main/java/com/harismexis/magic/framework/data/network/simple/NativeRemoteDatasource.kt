@@ -1,10 +1,9 @@
 package com.harismexis.magic.framework.data.network.simple
 
 import com.harismexis.magic.BuildConfig
-import com.harismexis.magic.framework.data.network.model.RemoteCards
+import com.harismexis.magic.framework.data.network.model.cards.RemoteCards
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
-import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import javax.inject.Inject
@@ -24,7 +23,8 @@ class NativeRemoteDatasource @Inject constructor(
             requestMethod = "GET"
             setRequestProperty("Content-Type", "application/json; utf-8")
             setRequestProperty("Accept", "application/json")
-            return toCards(inputStream)
+            //return toCards(inputStream)
+            return httpHelper.streamToModel(inputStream)
         }
         throw Exception("Cannot open HttpURLConnection")
     }
@@ -37,35 +37,9 @@ class NativeRemoteDatasource @Inject constructor(
         }
     }
 
-    private fun toCards(inStream: InputStream): RemoteCards {
-        val str = httpHelper.convertStreamToString(inStream)
-        return httpHelper.convertToModel(str)
-    }
-
-//    private fun convertStreamToString(inStream: InputStream): String {
-//        val reader = BufferedReader(InputStreamReader(inStream))
-//        val sb = StringBuilder()
-//        var line: String?
-//        try {
-//            while (reader.readLine().also { line = it } != null) {
-//                sb.append("""$line""".trimIndent())
-//            }
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//        } finally {
-//            try {
-//                inStream.close()
-//            } catch (e: IOException) {
-//                e.printStackTrace()
-//            }
-//        }
-//        return sb.toString()
-//    }
-//
-//    private inline fun <reified T> convertToModel(jsonString: String?): T {
-//        val gson = GsonBuilder().setLenient().create()
-//        val json: JsonObject = gson.fromJson(jsonString, JsonObject::class.java)
-//        return Gson().fromJson(json, T::class.java)
+//    private fun toCards(inStream: InputStream): RemoteCards {
+//        val str = httpHelper.convertStreamToString(inStream)
+//        return httpHelper.convertToModel(str)
 //    }
 
 }

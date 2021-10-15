@@ -14,7 +14,7 @@ import javax.inject.Singleton
 class HttpHelper @Inject constructor(
 ) {
 
-    fun convertStreamToString(inStream: InputStream): String {
+    fun streamToString(inStream: InputStream): String {
         val reader = BufferedReader(InputStreamReader(inStream))
         val sb = StringBuilder()
         var line: String?
@@ -34,10 +34,15 @@ class HttpHelper @Inject constructor(
         return sb.toString()
     }
 
-    inline fun <reified T> convertToModel(jsonString: String?): T {
+    inline fun <reified T> jsonToModel(jsonString: String?): T {
         val gson = GsonBuilder().setLenient().create()
         val json: JsonObject = gson.fromJson(jsonString, JsonObject::class.java)
         return Gson().fromJson(json, T::class.java)
+    }
+
+    inline fun <reified T> streamToModel(inStream: InputStream): T {
+        val str = streamToString(inStream)
+        return jsonToModel(str)
     }
 
 }

@@ -9,4 +9,8 @@ interface MagicRemote {
     fun getCardsBlocking(name: String? = null): List<Card>
 
     suspend fun getCardsMainSafe(name: String? = null): List<Card>
+
+//    fun getSetsBlocking(name: String? = null): List<Card>
+//
+//    suspend fun getSetsMainSafe(name: String? = null): List<Card>
 }
