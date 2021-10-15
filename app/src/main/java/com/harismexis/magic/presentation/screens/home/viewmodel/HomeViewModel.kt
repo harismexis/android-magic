@@ -7,7 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harismexis.magic.core.repository.MagicLocal
 import com.harismexis.magic.core.repository.MagicRemote
-import com.harismexis.magic.core.result.CardsResult
+import com.harismexis.magic.core.result.cards.CardsResult
+import com.harismexis.magic.core.result.sets.SetsResult
 import com.harismexis.magic.framework.event.Event
 import com.harismexis.magic.framework.extensions.getErrorMessage
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,9 +28,13 @@ class HomeViewModel @Inject constructor(
     val cardsResult: LiveData<CardsResult>
         get() = mCardsResult
 
-    private val mShowErrorMessage = MutableLiveData<Event<String>>()
-    val showErrorMessage: LiveData<Event<String>>
-        get() = mShowErrorMessage
+    private val mSetsResult = MutableLiveData<SetsResult>()
+    val setsResult: LiveData<SetsResult>
+        get() = mSetsResult
+
+    private val mShowError = MutableLiveData<Event<String>>()
+    val showError: LiveData<Event<String>>
+        get() = mShowError
 
     private var searchQuery: String? = null
 
@@ -57,7 +62,7 @@ class HomeViewModel @Inject constructor(
             } catch (e: Exception) {
                 Log.d(TAG, e.getErrorMessage())
                 mCardsResult.postValue(CardsResult.Error(e))
-                mShowErrorMessage.value = Event(e.getErrorMessage())
+                mShowError.value = Event(e.getErrorMessage())
             }
         }
     }
@@ -74,7 +79,7 @@ class HomeViewModel @Inject constructor(
             } catch (e: Exception) {
                 Log.d(TAG, e.getErrorMessage())
                 mCardsResult.value = CardsResult.Error(e)
-                mShowErrorMessage.value = Event(e.getErrorMessage())
+                mShowError.value = Event(e.getErrorMessage())
             }
         }
     }
@@ -90,7 +95,20 @@ class HomeViewModel @Inject constructor(
             } catch (e: Exception) {
                 Log.d(TAG, e.getErrorMessage())
                 mCardsResult.value = CardsResult.Error(e)
-                mShowErrorMessage.value = Event(e.getErrorMessage())
+                mShowError.value = Event(e.getErrorMessage())
+            }
+        }
+    }
+
+    fun fetchRemoteSets(name: String? = null) {
+        viewModelScope.launch {
+            try {
+                val items = magicRemote.getSetsMainSafe(name)
+                mSetsResult.value = SetsResult.Success(items)
+            } catch (e: Exception) {
+                Log.d(TAG, e.getErrorMessage())
+                mSetsResult.value = SetsResult.Error(e)
+                mShowError.value = Event(e.getErrorMessage())
             }
         }
     }

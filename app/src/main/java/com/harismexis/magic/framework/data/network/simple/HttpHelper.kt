@@ -1,7 +1,6 @@
 package com.harismexis.magic.framework.data.network.simple
 
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import java.io.BufferedReader
 import java.io.IOException
@@ -34,10 +33,10 @@ class HttpHelper @Inject constructor(
         return sb.toString()
     }
 
-    inline fun <reified T> jsonToModel(jsonString: String?): T {
-        val gson = GsonBuilder().setLenient().create()
-        val json: JsonObject = gson.fromJson(jsonString, JsonObject::class.java)
-        return Gson().fromJson(json, T::class.java)
+    inline fun <reified T> jsonToModel(jsonString: String): T {
+        val gson = Gson()
+        val json = gson.fromJson(jsonString, JsonObject::class.java)
+        return gson.fromJson(json, T::class.java)
     }
 
     inline fun <reified T> streamToModel(inStream: InputStream): T {

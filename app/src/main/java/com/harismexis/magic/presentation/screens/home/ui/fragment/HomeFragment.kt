@@ -2,6 +2,7 @@ package com.harismexis.magic.presentation.screens.home.ui.fragment
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -16,9 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.harismexis.magic.R
 import com.harismexis.magic.core.domain.Card
-import com.harismexis.magic.core.result.CardsResult
+import com.harismexis.magic.core.result.cards.CardsResult
+import com.harismexis.magic.core.result.sets.SetsResult
 import com.harismexis.magic.databinding.FragmentHomeBinding
 import com.harismexis.magic.framework.event.EventObserver
+import com.harismexis.magic.framework.extensions.getErrorMessage
 import com.harismexis.magic.framework.extensions.showToast
 import com.harismexis.magic.framework.util.ui.hideKeyboard
 import com.harismexis.magic.presentation.base.BaseFragment
@@ -74,6 +77,7 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
     override fun onViewCreated() {
         observeLiveData()
         viewModel.fetchCards()
+        viewModel.fetchRemoteSets()
     }
 
     private fun setupToolbar() {
@@ -114,14 +118,35 @@ class HomeFragment : BaseFragment(), HeroViewHolder.HeroClickListener,
     }
 
     private fun observeLiveData() {
+        observeCards()
+        observeSets()
+        observeErrorMsg()
+    }
+
+    private fun observeCards() {
         viewModel.cardsResult.observe(viewLifecycleOwner, {
             when (it) {
                 is CardsResult.Success -> populate(it.items)
                 is CardsResult.Error -> populateError(it.error)
             }
         })
+    }
 
-        viewModel.showErrorMessage.observe(viewLifecycleOwner, EventObserver {
+    private fun observeSets() {
+        viewModel.setsResult.observe(viewLifecycleOwner, {
+            when (it) {
+                is SetsResult.Success -> {
+                    Log.d("Sets: ", it.items.toString())
+                }
+                is SetsResult.Error -> {
+                    Log.d("Sets: ", it.error.getErrorMessage())
+                }
+            }
+        })
+    }
+
+    private fun observeErrorMsg() {
+        viewModel.showError.observe(viewLifecycleOwner, EventObserver {
             requireContext().showToast(it)
         })
     }

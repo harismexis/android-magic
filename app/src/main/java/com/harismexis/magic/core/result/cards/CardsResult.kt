@@ -1,4 +1,4 @@
-package com.harismexis.magic.core.result
+package com.harismexis.magic.core.result.cards
 
 import com.harismexis.magic.core.domain.Card
 

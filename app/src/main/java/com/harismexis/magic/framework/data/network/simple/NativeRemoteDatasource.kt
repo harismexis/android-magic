@@ -40,7 +40,7 @@ class NativeRemoteDatasource @Inject constructor(
     fun getSetsBlocking(
         name: String?
     ): RemoteSets {
-        val url = URL(BuildConfig.MAGIC_API_BASE_URL + "sets?name=" + name)
+        val url = URL(BuildConfig.MAGIC_API_BASE_URL + "sets")
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "GET"
             setRequestProperty("Content-Type", "application/json; utf-8")
